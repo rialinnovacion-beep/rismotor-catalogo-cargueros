@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="Catálogo móvil interactivo de cargueros RismotoR 2026: KEMA, Predator, Sentinel, Jepeta y FMK. Fichas técnicas, precios referenciales y cotización por WhatsApp.">
+    <meta name="theme-color" content="#c9192e">
+    <title>Cargueros RISMOTOR 2026 | Catálogo móvil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="app-header" id="inicio">
+        <div class="app-bar">
+            <a class="brand" href="#inicio" aria-label="Inicio RISMOTOR Cargueros">
+                <span class="brand-mark">R</span>
+                <span class="brand-text">RISMOTOR</span>
+            </a>
+            <a class="mini-wsp" href="https://wa.me/51967350685?text=Hola%20RISMOTOR%2C%20quiero%20informaci%C3%B3n%20de%20cargueros" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ventas">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>Ventas</span>
+            </a>
+        </div>
+
+        <section class="mobile-hero">
+            <div class="hero-copy">
+                <span class="eyebrow">Catálogo 2026</span>
+                <h1>Cargueros para trabajo fuerte</h1>
+                <p>Consulta modelos, ficha técnica, carga, precio referencial y cotiza por WhatsApp desde tu celular.</p>
+                <div class="hero-actions">
+                    <a class="primary-btn" href="#modelos"><i class="fa-solid fa-truck-ramp-box"></i> Ver modelos</a>
+                    <button class="secondary-btn" type="button" id="openAdvisorHero"><i class="fa-solid fa-user-tie"></i> Asesorarme</button>
+                </div>
+            </div>
+            <div class="hero-image-card">
+                <img src="assets/cargueros/kema-400-triple-refrigeracion.webp" alt="KEMA 400 CC carguero RismotoR" fetchpriority="high">
+                <div class="hero-badge">
+                    <strong>KEMA 400 CC</strong>
+                    <span>Triple refrigeración</span>
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <main>
+        <section class="quick-strip" aria-label="Datos rápidos del catálogo">
+            <article><strong id="totalModels">0</strong><span>modelos</span></article>
+            <article><strong>250-400 CC</strong><span>cilindrada</span></article>
+            <article><strong>hasta 2500 kg</strong><span>carga</span></article>
+        </section>
+
+        <section class="intent-section" aria-labelledby="intentTitle">
+            <div class="section-title compact-title">
+                <span class="eyebrow dark">Elige por necesidad</span>
+                <h2 id="intentTitle">¿Qué tipo de carguero buscas?</h2>
+            </div>
+            <div class="intent-scroll" id="intentScroll">
+                <button type="button" class="intent-card" data-filter-shortcut="compacto">
+                    <i class="fa-solid fa-city"></i>
+                    <strong>Reparto urbano</strong>
+                    <span>250-300 CC</span>
+                </button>
+                <button type="button" class="intent-card" data-filter-shortcut="cabina">
+                    <i class="fa-solid fa-truck"></i>
+                    <strong>Trabajo pesado</strong>
+                    <span>Cabina y caja</span>
+                </button>
+                <button type="button" class="intent-card" data-filter-shortcut="4x4">
+                    <i class="fa-solid fa-mountain-sun"></i>
+                    <strong>Trocha / campo</strong>
+                    <span>4x4</span>
+                </button>
+                <button type="button" class="intent-card" data-filter-shortcut="volquete">
+                    <i class="fa-solid fa-dumpster"></i>
+                    <strong>Descarga rápida</strong>
+                    <span>Volquete</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="catalog-toolbar" id="modelos" aria-labelledby="modelosHeading">
+            <div class="section-title">
+                <span class="eyebrow dark">Modelos disponibles</span>
+                <h2 id="modelosHeading">Catálogo de cargueros</h2>
+            </div>
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search" id="searchInput" placeholder="Buscar KEMA, Predator, Sentinel..." aria-label="Buscar carguero">
+            </div>
+            <div class="filter-row" id="filterButtons" role="group" aria-label="Filtros de cargueros">
+                <button class="filter-chip active" type="button" data-filter="all">Todos</button>
+                <button class="filter-chip" type="button" data-filter="cabina">Cabina</button>
+                <button class="filter-chip" type="button" data-filter="4x4">4x4</button>
+                <button class="filter-chip" type="button" data-filter="compacto">Compactos</button>
+                <button class="filter-chip" type="button" data-filter="volquete">Volquete</button>
+                <button class="filter-chip" type="button" data-filter="r10">R10</button>
+            </div>
+        </section>
+
+        <section class="catalog-list" id="catalogGrid" aria-live="polite"></section>
+        <p class="empty-state hidden" id="emptyState">No encontré modelos con ese filtro. Prueba con otra palabra o categoría.</p>
+
+        <section class="compare-section" id="comparador" aria-labelledby="compareHeading">
+            <div class="section-title with-action">
+                <div>
+                    <span class="eyebrow dark">Comparador</span>
+                    <h2 id="compareHeading">Compara hasta 3</h2>
+                </div>
+                <button class="text-btn" id="clearCompareBtn" type="button"><i class="fa-solid fa-rotate-left"></i> Limpiar</button>
+            </div>
+            <div class="compare-wrap" id="compareTableWrap">
+                <div class="compare-placeholder">Toca “Comparar” en una tarjeta para añadirla aquí.</div>
+            </div>
+        </section>
+
+        <section class="gallery-section" id="galeria" aria-labelledby="galleryHeading">
+            <div class="section-title">
+                <span class="eyebrow dark">Fichas originales</span>
+                <h2 id="galleryHeading">Galería técnica</h2>
+                <p>Toca una imagen para verla completa.</p>
+            </div>
+            <div class="gallery-grid" id="galleryGrid"></div>
+        </section>
+
+        <section class="contact-section" id="contacto">
+            <span class="eyebrow">Atención directa</span>
+            <h2>¿Listo para cotizar?</h2>
+            <p>Escríbenos el modelo, ciudad, tipo de carga y si lo necesitas para ciudad, campo o trocha.</p>
+            <a class="primary-btn whatsapp" href="https://wa.me/51967350685?text=Hola%20RISMOTOR%2C%20quiero%20cotizar%20un%20carguero.%20Me%20ayudan%20con%20precio%20actualizado%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Cotizar por WhatsApp</a>
+        </section>
+    </main>
+
+    <aside class="advisor-widget closed" id="advisorWidget" aria-label="Asesor de cargueros">
+        <header>
+            <div>
+                <strong>Asesor RISMOTOR</strong>
+                <span>Te recomiendo según tu carga</span>
+            </div>
+            <button id="closeAdvisor" type="button" aria-label="Cerrar asesor"><i class="fa-solid fa-xmark"></i></button>
+        </header>
+        <div class="advisor-body" id="advisorBody">
+            <div class="chat-bubble bot">Hola. Dime cuánto peso llevarás y si trabajarás en ciudad, campo o trocha.</div>
+        </div>
+        <div class="advisor-input">
+            <input id="advisorInput" type="text" placeholder="Ej: 1000 kg en ciudad" aria-label="Mensaje al asesor">
+            <button id="sendAdvisor" type="button" aria-label="Enviar mensaje"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </aside>
+
+    <button class="advisor-toggle" id="advisorToggle" type="button" aria-label="Abrir asesor">
+        <i class="fa-solid fa-comments"></i>
+    </button>
+
+    <a class="float-whatsapp" href="https://wa.me/51967350685?text=Hola%20RISMOTOR%2C%20estoy%20viendo%20el%20cat%C3%A1logo%20m%C3%B3vil%20de%20cargueros%20y%20quiero%20cotizar" target="_blank" rel="noopener noreferrer" aria-label="Cotizar por WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <nav class="bottom-nav" aria-label="Navegación móvil">
+        <a href="#inicio"><i class="fa-solid fa-house"></i><span>Inicio</span></a>
+        <a href="#modelos"><i class="fa-solid fa-truck-front"></i><span>Modelos</span></a>
+        <a href="#comparador"><i class="fa-solid fa-scale-balanced"></i><span>Comparar</span></a>
+        <a href="#contacto"><i class="fa-brands fa-whatsapp"></i><span>Cotizar</span></a>
+    </nav>
+
+    <div class="modal hidden" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-sheet">
+            <button class="modal-close" id="modalClose" type="button" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <strong>RISMOTOR Cargueros 2026</strong>
+        <span>Av. Alfredo Mendiola 8018, Comas - Lima · Envíos a nivel nacional</span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
